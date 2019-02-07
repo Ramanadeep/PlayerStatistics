@@ -10,10 +10,29 @@ import UIKit
 
 class PlayerStatisticsViewController: UIViewController {
 
+    //MARK:- Variable and Constants
+    let matchID = "NRL20172101"
+    
+    private var viewModel:PlayerStatisticsViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+            viewModel = PlayerStatisticsViewModel(matchId: matchID)
+        observeEvents()
         // Do any additional setup after loading the view.
+    }
+    
+    private func observeEvents(){
+        viewModel?.reloadTable = {[weak self] in
+            DispatchQueue.main.async {
+                //self?.tableView.reloadData()
+                //self?.isRefreshInProgress = false
+                //ActivityIndicator.sharedIndicator.hideActivityIndicator()
+            }
+        }
+        viewModel?.statsViewModelArray = {[weak self] statsArray in
+            print("PRINTINGGGGGgggggg------>", statsArray.count)
+        }
+        
     }
     
 
