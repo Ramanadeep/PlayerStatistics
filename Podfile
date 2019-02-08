@@ -6,6 +6,7 @@ target 'PlayerStatistics' do
   use_frameworks!
 
   # Pods for PlayerStatistics
+  pod 'Kingfisher'
 
   target 'PlayerStatisticsTests' do
     inherit! :search_paths

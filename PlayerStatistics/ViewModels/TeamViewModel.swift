@@ -9,13 +9,13 @@
 import Foundation
 
 class TeamViewModel {
-    let id: Int
+    let id: String
     let name, code, shortName: String
     let topPlayers: [PlayerViewModel]
     //let team:Team
     
     init(team:Team) {
-        self.id = team.id
+        self.id = String(team.id)
         self.name = team.name
         self.code = team.code
         self.shortName = team.shortName

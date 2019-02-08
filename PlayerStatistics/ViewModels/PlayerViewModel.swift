@@ -9,19 +9,20 @@
 import Foundation
 
 class PlayerViewModel {
-    let id: Int?
+    let id: String?
     let position: String?
     let shortName:String?
-    let statValue, jumperNumber: Int?
-    //var player = Player
+    let statValue, jumperNumber: String?
+    //let lastMatchStats: [String: Double?]?
     
     
     init(player:Player) {
-        self.id = player.id
-        self.jumperNumber = player.jumperNumber
+        self.id = String(player.id)
+        self.jumperNumber = String(player.jumperNumber)
         self.position = player.position
         self.shortName = player.shortName
-        self.statValue = player.statValue
+        self.statValue = String(player.statValue)
+        //self.lastMatchStats = player.lastMatchStats
     }
     
 }

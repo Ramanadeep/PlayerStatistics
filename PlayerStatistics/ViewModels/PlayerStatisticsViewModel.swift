@@ -15,26 +15,42 @@ protocol PlayerStatistics{
 class PlayerStatisticsViewModel: PlayerStatistics {
     //MARK:- Variables and Constants
     var matchId:String?
-    //MARK: Events
-    var viewDidLoad: ()->() = {}
-    var statsViewModelArray: ([StatViewModel])->() = { _ in }
+    var statsArray:[StatViewModel]?
+    
+    //MARK:- Events
     /// Callback to reload the table.
     var reloadTable: ()->() = { }
     
+    //MARK:- Initialisation
     init(matchId:String) {
         self.matchId = matchId
         getPlayerStatisticsFromServer()
     }
     
     func getPlayerStatisticsFromServer() {
-        
         PlayerStatisticsServiceRequest().getMatchStatsFromServer(matchId: matchId!) { (stats, error) in
-            var fff = [StatViewModel]()
-            for a in stats!{
-                fff.append(StatViewModel(stat: a))
+            var statsArray = [StatViewModel]()
+            for stat in stats!{
+                statsArray.append(StatViewModel(stat: stat))
             }
-            self.statsViewModelArray(fff)
+            self.statsArray = statsArray
+            self.reloadTable()
         }
     }
-
+    
+    func getTeamAPlayerAtIndex(statIndex:Int, playerIndex:Int) -> PlayerViewModel {
+        return statsArray![statIndex].teamA.topPlayers[playerIndex]
+    }
+    
+    func getTeamBPlayerAtIndex(statIndex:Int, playerIndex:Int) -> PlayerViewModel {
+        return statsArray![statIndex].teamB.topPlayers[playerIndex]
+    }
+    
+    func getTeamAIdAtIndex(statIndex:Int) -> String {
+        return statsArray![statIndex].teamA.id
+    }
+    
+    func getTeamBIdAtIndex(statIndex:Int) -> String {
+        return statsArray![statIndex].teamB.id
+    }
 }

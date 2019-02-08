@@ -18,10 +18,19 @@ class Constants: NSObject {
     
     struct WebServicesApi {
         static let getStats = Api.baseURL + "api/sports/league/matches/"
+        static let getPlayer = Api.baseURL + "api/sports/league/series/1/seasons/115/teams/"
     }
     
     struct APIConfig{
         static let userKey = "A00239D3-45F6-4A0A-810C-54A347F144C2"
+    }
+    
+    struct ImageAPI {
+        static let imageURL = "http://media.foxsports.com.au/match-centre/includes/images/headshots/nrl/"
+    }
+    
+    struct Seques {
+        static let playerDetailsSeque = "PlayerDetailsSeque"
     }
 }
 

@@ -17,12 +17,21 @@ struct PlayerStatisticsServiceRequest {
                 completion(nil, error)
             }else{
                 let statsList = try? JSONDecoder().decode(Stats.self, from: data!)
-                var statsArray = [Stat]()
-                for stat in statsList!{
-                    statsArray.append(stat)
-                }
-                completion(statsArray, nil)
+                completion(statsList, nil)
+            }
+        }
+    }
+    
+    func getPlayerDetailsFromServer(playerId:String, teamId:String, completion: @escaping (Player?, _ error: Error?)->()) {
+        let url = Constants.WebServicesApi.getPlayer + teamId + "/players/" + playerId + "/detailedstats.json?&userkey=" + Constants.APIConfig.userKey
+        WebServiceManager.sharedService.requestAPI(url: url, parameter: nil, httpMethodType: .GET) { (data, error) in
+            if error != nil{
+                completion(nil, error)
+            }else{
+                let player = try? JSONDecoder().decode(Player.self, from: data!)
+                completion(player, nil)
             }
         }
     }
 }
+
