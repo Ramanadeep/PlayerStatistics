@@ -9,17 +9,17 @@
 import Foundation
 
 class TeamViewModel {
-    let id: String
-    let name, code, shortName: String
-    let topPlayers: [PlayerViewModel]
-    //let team:Team
+    var id: String
+    var name, code, shortName: String
+    var topPlayers: [PlayerViewModel] = []
     
     init(team:Team) {
-        self.id = String(team.id)
-        self.name = team.name
-        self.code = team.code
-        self.shortName = team.shortName
-        //self.team = team
-        self.topPlayers = team.topPlayers.map({ return PlayerViewModel(player: $0)})
+        self.id = String(team.id!)
+        self.name = team.name!
+        self.code = team.code!
+        self.shortName = team.shortName!
+        for player in team.topPlayers!{
+            topPlayers.append(PlayerViewModel(player: player))
+        }
     }
 }

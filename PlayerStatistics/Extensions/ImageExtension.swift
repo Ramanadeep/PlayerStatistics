@@ -21,4 +21,16 @@ extension UIImageView{
                 .cacheOriginalImage
             ])
     }
+    
+    func setImage(url:String, placeHolderImage:UIImage) {
+        let url = URL(string: url)
+        self.kf.setImage(
+            with: url,
+            placeholder: placeHolderImage,
+            options: [
+                .scaleFactor(UIScreen.main.scale),
+                .transition(.fade(1)),
+                .cacheOriginalImage
+            ])
+    }
 }

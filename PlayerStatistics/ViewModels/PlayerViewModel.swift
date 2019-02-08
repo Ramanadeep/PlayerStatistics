@@ -13,16 +13,14 @@ class PlayerViewModel {
     let position: String?
     let shortName:String?
     let statValue, jumperNumber: String?
-    //let lastMatchStats: [String: Double?]?
     
     
     init(player:Player) {
-        self.id = String(player.id)
-        self.jumperNumber = String(player.jumperNumber)
+        self.id = String(player.id!)
+        self.jumperNumber = String(player.jumperNumber!)
         self.position = player.position
         self.shortName = player.shortName
-        self.statValue = String(player.statValue)
-        //self.lastMatchStats = player.lastMatchStats
+        self.statValue = String(player.statValue!)
     }
     
 }

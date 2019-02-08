@@ -26,6 +26,9 @@ class PlayerStatisticsViewController: UIViewController {
         observeEvents()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+    }
+    
     private func prepareTableView(){
         StatTableViewCell.registerWithTable(statsTableView)
         statsTableView.rowHeight = 120
@@ -72,6 +75,7 @@ extension PlayerStatisticsViewController:UITableViewDataSource, UITableViewDeleg
         let teamBPlayer = viewModel!.getTeamBPlayerAtIndex(statIndex: indexPath.section, playerIndex: indexPath.row)
         cell.configureCell(playerTeamA: teamAPlayer, playerTeamB: teamBPlayer)
         cell.teamAImageTapped = {[weak self] in
+            
             self?.navigateToPlayerDetailsScreen(teamId: self!.viewModel!.getTeamAIdAtIndex(statIndex: indexPath.section), playerId: (teamAPlayer.id)!)
         }
         cell.teamBImageTapped = {[weak self] in

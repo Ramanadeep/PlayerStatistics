@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ObjectMapper
 
 struct PlayerStatisticsServiceRequest {
     
@@ -16,8 +17,19 @@ struct PlayerStatisticsServiceRequest {
             if error != nil{
                 completion(nil, error)
             }else{
-                let statsList = try? JSONDecoder().decode(Stats.self, from: data!)
-                completion(statsList, nil)
+                do {
+                    let result = try JSONSerialization.jsonObject(with: data!, options: []) as? [[String:Any]]
+                    if let theJSONData = try? JSONSerialization.data(
+                        withJSONObject: result ?? [],
+                        options: []) {
+                        let theJSONText = String(data: theJSONData,
+                                                 encoding: .ascii)
+                        let usersArray = Mapper<Stat>().mapArray(JSONString: theJSONText!)
+                        completion(usersArray, nil)
+                    }
+                } catch {
+                    completion(nil, error)
+                }
             }
         }
     }
@@ -28,8 +40,19 @@ struct PlayerStatisticsServiceRequest {
             if error != nil{
                 completion(nil, error)
             }else{
-                let player = try? JSONDecoder().decode(Player.self, from: data!)
-                completion(player, nil)
+                do {
+                    let result = try JSONSerialization.jsonObject(with: data!, options: []) as? [String:Any]
+                    if let theJSONData = try? JSONSerialization.data(
+                        withJSONObject: result ?? [],
+                        options: []) {
+                        let theJSONText = String(data: theJSONData,
+                                                 encoding: .ascii)
+                        let player = Mapper<Player>().map(JSONString: theJSONText!)
+                        completion(player, nil)
+                    }
+                } catch {
+                    completion(nil, error)
+                }
             }
         }
     }

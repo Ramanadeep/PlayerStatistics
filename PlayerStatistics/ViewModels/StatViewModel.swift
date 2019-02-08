@@ -15,9 +15,9 @@ class StatViewModel{
     let statType: String
     
     init(stat:Stat) {
-        self.matchID = stat.matchID
-        self.statType = stat.statType
-        self.teamA = TeamViewModel(team: stat.teamA)
-        self.teamB = TeamViewModel(team: stat.teamB)
+        self.matchID = stat.matchID!
+        self.statType = stat.statType!
+        self.teamA = TeamViewModel(team: stat.teamA!)
+        self.teamB = TeamViewModel(team: stat.teamB!)
     }
 }

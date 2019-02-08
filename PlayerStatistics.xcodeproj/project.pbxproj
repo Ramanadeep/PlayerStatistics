@@ -29,6 +29,8 @@
 		59F11232220D149600DF6D48 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F11231220D149600DF6D48 /* ImageExtension.swift */; };
 		59F11234220D295300DF6D48 /* PlayerDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F11233220D295300DF6D48 /* PlayerDetailsViewController.swift */; };
 		59F11236220D29F400DF6D48 /* PlayerDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F11235220D29F400DF6D48 /* PlayerDetailsViewModel.swift */; };
+		59F11239220D87DF00DF6D48 /* LastMatchStatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F11237220D87DF00DF6D48 /* LastMatchStatsTableViewCell.swift */; };
+		59F1123A220D87DF00DF6D48 /* LastMatchStatsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59F11238220D87DF00DF6D48 /* LastMatchStatsTableViewCell.xib */; };
 		59F1A27F220AB2AF001B2693 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F1A27E220AB2AF001B2693 /* AppDelegate.swift */; };
 		59F1A28A220AB4B1001B2693 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59F1A288220AB4B1001B2693 /* LaunchScreen.storyboard */; };
 		59F1A28B220AB4B1001B2693 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59F1A289220AB4B1001B2693 /* Main.storyboard */; };
@@ -71,6 +73,8 @@
 		59F11231220D149600DF6D48 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		59F11233220D295300DF6D48 /* PlayerDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewController.swift; sourceTree = "<group>"; };
 		59F11235220D29F400DF6D48 /* PlayerDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerDetailsViewModel.swift; sourceTree = "<group>"; };
+		59F11237220D87DF00DF6D48 /* LastMatchStatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastMatchStatsTableViewCell.swift; sourceTree = "<group>"; };
+		59F11238220D87DF00DF6D48 /* LastMatchStatsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastMatchStatsTableViewCell.xib; sourceTree = "<group>"; };
 		59F1A27E220AB2AF001B2693 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59F1A288220AB4B1001B2693 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		59F1A289220AB4B1001B2693 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -231,6 +235,8 @@
 			children = (
 				59F11224220CECF500DF6D48 /* StatTableViewCell.swift */,
 				59F11225220CECF500DF6D48 /* StatTableViewCell.xib */,
+				59F11237220D87DF00DF6D48 /* LastMatchStatsTableViewCell.swift */,
+				59F11238220D87DF00DF6D48 /* LastMatchStatsTableViewCell.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -347,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59F1A28B220AB4B1001B2693 /* Main.storyboard in Resources */,
+				59F1123A220D87DF00DF6D48 /* LastMatchStatsTableViewCell.xib in Resources */,
 				59F1122C220D010200DF6D48 /* Images.xcassets in Resources */,
 				59F11227220CECF500DF6D48 /* StatTableViewCell.xib in Resources */,
 				5958B745220AB0FB0051FE91 /* Assets.xcassets in Resources */,
@@ -374,12 +381,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PlayerStatistics/Pods-PlayerStatistics-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -450,6 +459,7 @@
 				59F11211220CEC6100DF6D48 /* PlayerViewModel.swift in Sources */,
 				59F11223220CECD100DF6D48 /* Constants.swift in Sources */,
 				59F11218220CEC6E00DF6D48 /* Player.swift in Sources */,
+				59F11239220D87DF00DF6D48 /* LastMatchStatsTableViewCell.swift in Sources */,
 				59F11217220CEC6E00DF6D48 /* Stat.swift in Sources */,
 				59F11234220D295300DF6D48 /* PlayerDetailsViewController.swift in Sources */,
 				59F11236220D29F400DF6D48 /* PlayerDetailsViewModel.swift in Sources */,

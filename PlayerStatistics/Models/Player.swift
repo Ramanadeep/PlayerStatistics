@@ -7,46 +7,41 @@
 //
 
 import Foundation
+import ObjectMapper
 
-struct Player: Codable {
-    let id: Int
-    let position, fullName, shortName: String
-    let statValue, jumperNumber: Int
-    //let lastMatchStats: [String: Double?]?
+struct Player: Mappable {
+    var id: Int?
+    var position, fullName, shortName: String?
+    var statValue, jumperNumber: Int?
+    var lastMatchStats: [String : AnyObject] = [:]
+    init?(map: Map) {
+        
+        id <- map["id"]
+        position <- map["position"]
+        fullName <- map["full_name"]
+        shortName <- map["short_name"]
+        jumperNumber <- map["jumper_number"]
+        statValue <- map["stat_value"]
+        lastMatchStats <- map["last_match_stats"]
+    }
     
-    enum CodingKeys: String, CodingKey {
-        case id, position
-        case fullName = "full_name"
-        case shortName = "short_name"
-        case statValue = "stat_value"
-        case jumperNumber = "jumper_number"
-        //case lastMatchStats = "last_match_stats"
+    mutating func mapping(map: Map) {
+        id <- map["id"]
+        position <- map["position"]
+        fullName <- map["full_name"]
+        shortName <- map["short_name"]
+        jumperNumber <- map["jumper_number"]
+        statValue <- map["stat_value"]
+        lastMatchStats <- map["last_match_stats"]
+        
     }
 }
 
-// MARK: Encode/decode helpers
-
-class JSONNull: Codable, Hashable {
-    
-    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-        return true
-    }
-    
-    public var hashValue: Int {
-        return 0
-    }
-    
-    public init() {}
-    
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-        }
-    }
-    
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encodeNil()
+struct LastMatchStat {
+    var key: String?
+    var value: String?
+    init(key:String, value:String) {
+        self.key = key
+        self.value = value
     }
 }
