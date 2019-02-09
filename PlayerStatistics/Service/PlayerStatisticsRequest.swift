@@ -24,8 +24,8 @@ struct PlayerStatisticsServiceRequest {
                         options: []) {
                         let theJSONText = String(data: theJSONData,
                                                  encoding: .ascii)
-                        let usersArray = Mapper<Stat>().mapArray(JSONString: theJSONText!)
-                        completion(usersArray, nil)
+                        let statArray = Mapper<Stat>().mapArray(JSONString: theJSONText!)
+                        completion(statArray, nil)
                     }
                 } catch {
                     completion(nil, error)

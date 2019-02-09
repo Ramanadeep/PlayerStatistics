@@ -8,6 +8,7 @@ target 'PlayerStatistics' do
   # Pods for PlayerStatistics
   pod 'Kingfisher'
   pod 'ObjectMapper', '~> 3.4'
+  pod 'Mocker', '~> 1.0.0'
 
   target 'PlayerStatisticsTests' do
     inherit! :search_paths

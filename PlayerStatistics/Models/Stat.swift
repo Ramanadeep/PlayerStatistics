@@ -12,6 +12,7 @@ import ObjectMapper
 typealias Stats = [Stat]
 
 struct Stat: Mappable {
+
     var matchID: String?
     var teamA, teamB: Team?
     var statType: String?

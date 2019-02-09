@@ -15,6 +15,7 @@ class PlayerDetailsViewController: UIViewController {
     @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var lastMatchStatsTableView: UITableView!
+    @IBOutlet weak var noDataLabel: UILabel!
     
     //MARK:- Variables
     var teamId:String?
@@ -31,6 +32,7 @@ class PlayerDetailsViewController: UIViewController {
         observeEvents()
         showActivityIndicator()
         lastMatchStatsTableView.isHidden = true
+        noDataLabel.isHidden = true
     }
     
 
@@ -38,6 +40,7 @@ class PlayerDetailsViewController: UIViewController {
         viewModel?.reloadDataOnView = {[weak self] in
             DispatchQueue.main.async {
                 self?.hideActivityIndicator()
+                self?.noDataLabel.isHidden = true
                 self?.fullNameLabel.text = self?.viewModel!.fullName
                 self?.positionLabel.text =  self?.viewModel!.position
                 self?.playerImageView.setImage(url: Constants.ImageAPI.imageURL + (self?.playerId)! + ".jpg", placeHolderImage: "playerHeadshot")

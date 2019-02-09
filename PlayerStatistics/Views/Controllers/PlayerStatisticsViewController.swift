@@ -24,6 +24,7 @@ class PlayerStatisticsViewController: UIViewController {
         viewModel = PlayerStatisticsViewModel(matchId: matchID)
         prepareTableView()
         observeEvents()
+        statsTableView.sectionHeaderHeight = 50
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,7 +85,11 @@ extension PlayerStatisticsViewController:UITableViewDataSource, UITableViewDeleg
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel?.statsArray?[section].statType.removeUnderScore().capitalizingFirstLetter()
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: "TableViewHeader", bundle: bundle)
+        let headerView = nib.instantiate(withOwner: self, options: nil).first as! TableViewHeader
+        headerView.statTypeLabel.text = viewModel?.statsArray?[section].statType.removeUnderScore().capitalizingFirstLetter()
+        return headerView
     }
 }

@@ -1,20 +1,24 @@
 PODS:
   - Kingfisher (5.0.1)
+  - Mocker (1.0.0)
   - ObjectMapper (3.4.2)
 
 DEPENDENCIES:
   - Kingfisher
+  - Mocker (~> 1.0.0)
   - ObjectMapper (~> 3.4)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Kingfisher
+    - Mocker
     - ObjectMapper
 
 SPEC CHECKSUMS:
   Kingfisher: 4f771421b9208185217550528a06fd48756cb7c2
+  Mocker: 58560cc516f6240e92492dad66f295e7cdd7cdb2
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
 
-PODFILE CHECKSUM: 36181be8d700a8c8525a0bd2436ba3ede01658c0
+PODFILE CHECKSUM: f23805ff8bc0e1a800993bd225da96cd62670501
 
 COCOAPODS: 1.5.3
