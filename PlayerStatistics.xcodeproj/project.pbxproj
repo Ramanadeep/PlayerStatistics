@@ -12,6 +12,7 @@
 		5905B5C8220E6DC7001F56AA /* example.json in Resources */ = {isa = PBXBuildFile; fileRef = 5905B5C7220E6DC6001F56AA /* example.json */; };
 		59517A34220E489F00076382 /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59517A33220E489F00076382 /* TableViewHeader.swift */; };
 		59517A36220E48BB00076382 /* TableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59517A35220E48BB00076382 /* TableViewHeader.xib */; };
+		59545E15221242090004AAE5 /* WebSeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59545E14221242090004AAE5 /* WebSeviceManager.swift */; };
 		5958B745220AB0FB0051FE91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5958B744220AB0FB0051FE91 /* Assets.xcassets */; };
 		5958B753220AB0FB0051FE91 /* PlayerStatisticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5958B752220AB0FB0051FE91 /* PlayerStatisticsTests.swift */; };
 		59F11210220CEC6100DF6D48 /* StatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F1120C220CEC6100DF6D48 /* StatViewModel.swift */; };
@@ -21,7 +22,6 @@
 		59F11217220CEC6E00DF6D48 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F11214220CEC6D00DF6D48 /* Stat.swift */; };
 		59F11218220CEC6E00DF6D48 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F11215220CEC6E00DF6D48 /* Player.swift */; };
 		59F11219220CEC6E00DF6D48 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F11216220CEC6E00DF6D48 /* Team.swift */; };
-		59F1121E220CECB000DF6D48 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F1121B220CECB000DF6D48 /* APIManager.swift */; };
 		59F1121F220CECB000DF6D48 /* PlayerStatisticsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F1121C220CECB000DF6D48 /* PlayerStatisticsRequest.swift */; };
 		59F11223220CECD100DF6D48 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F11222220CECD100DF6D48 /* Constants.swift */; };
 		59F11226220CECF500DF6D48 /* StatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F11224220CECF500DF6D48 /* StatTableViewCell.swift */; };
@@ -55,6 +55,7 @@
 		5905B5C7220E6DC6001F56AA /* example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example.json; sourceTree = "<group>"; };
 		59517A33220E489F00076382 /* TableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeader.swift; sourceTree = "<group>"; };
 		59517A35220E48BB00076382 /* TableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewHeader.xib; sourceTree = "<group>"; };
+		59545E14221242090004AAE5 /* WebSeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSeviceManager.swift; sourceTree = "<group>"; };
 		5958B73A220AB0F30051FE91 /* PlayerStatistics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayerStatistics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5958B744220AB0FB0051FE91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5958B749220AB0FB0051FE91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,7 +69,6 @@
 		59F11214220CEC6D00DF6D48 /* Stat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
 		59F11215220CEC6E00DF6D48 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		59F11216220CEC6E00DF6D48 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
-		59F1121B220CECB000DF6D48 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		59F1121C220CECB000DF6D48 /* PlayerStatisticsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerStatisticsRequest.swift; sourceTree = "<group>"; };
 		59F11222220CECD100DF6D48 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		59F11224220CECF500DF6D48 /* StatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatTableViewCell.swift; sourceTree = "<group>"; };
@@ -173,8 +173,8 @@
 		59F1121A220CECB000DF6D48 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				59F1121B220CECB000DF6D48 /* APIManager.swift */,
 				59F1121C220CECB000DF6D48 /* PlayerStatisticsRequest.swift */,
+				59545E14221242090004AAE5 /* WebSeviceManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -461,9 +461,9 @@
 			files = (
 				59F11219220CEC6E00DF6D48 /* Team.swift in Sources */,
 				59F11212220CEC6100DF6D48 /* TeamViewModel.swift in Sources */,
-				59F1121E220CECB000DF6D48 /* APIManager.swift in Sources */,
 				59F11226220CECF500DF6D48 /* StatTableViewCell.swift in Sources */,
 				59F1122E220D100500DF6D48 /* StringExtension.swift in Sources */,
+				59545E15221242090004AAE5 /* WebSeviceManager.swift in Sources */,
 				59F1A28D220AB7D3001B2693 /* PlayerStatisticsViewController.swift in Sources */,
 				59F1121F220CECB000DF6D48 /* PlayerStatisticsRequest.swift in Sources */,
 				59F1122A220CF21A00DF6D48 /* UITableViewExtension.swift in Sources */,
