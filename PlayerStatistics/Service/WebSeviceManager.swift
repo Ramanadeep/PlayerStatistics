@@ -22,6 +22,7 @@ protocol ServiceManager {
 
 class WebServiceManager: ServiceManager {
     //MARK:- SingleTon
+    
     static let sharedService = WebServiceManager()
     
     func requestAPI(url: String,parameter: [String: AnyObject]?, httpMethodType: HTTPMethodType, completion: @escaping WebServiceCompletionBlock) {
