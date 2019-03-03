@@ -21,4 +21,7 @@ class StatViewModel{
         self.teamB = TeamViewModel(team: stat.teamB!)
     }
     
+    
+    
+    
 }
