@@ -20,4 +20,5 @@ class StatViewModel{
         self.teamA = TeamViewModel(team: stat.teamA!)
         self.teamB = TeamViewModel(team: stat.teamB!)
     }
+    
 }
