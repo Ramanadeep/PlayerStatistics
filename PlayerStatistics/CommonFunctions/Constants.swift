@@ -31,7 +31,6 @@ class Constants: NSObject {
     
     struct Seques {
         static let playerDetailsSeque = "PlayerDetailsSeque"
-    }
-    
+    }    
 }
 
