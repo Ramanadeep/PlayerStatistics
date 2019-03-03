@@ -45,6 +45,7 @@ class StatTableViewCell: ReusableTableViewCell {
         // Configure the view for the selected state
     }
     
+    
     func configureCell(playerTeamA:PlayerViewModel, playerTeamB:PlayerViewModel) {
         teamAStatValue.text = playerTeamA.statValue
         teamAShortName.text = playerTeamA.shortName
